@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"Agent/pkg"
+	"fmt"
+)
 
 func main() {
-	fmt.Println("Hello Agent")
+	if pkg.FileExists(pkg.GetCertPath()) && pkg.FileExists(pkg.GetKeyPath()) {
+		fmt.Println("agent setup - skipping bootstrap")
+	} else {
+		fmt.Println("agent requires setup - bootstrapping")
+	}
 }
